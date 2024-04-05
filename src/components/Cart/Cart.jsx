@@ -8,9 +8,16 @@ const Cart = ({cart, handleRemoveFromCart}) => {
     if(cart.length === 0){
         message = <p>Please add some products</p>
     }
+    else{
+        message = <div>
+            <h3>Rich People</h3>
+            <p><small>Thanks for giving your money</small></p>
+        </div>
+    }
     return (
         <div>
             <h2>Order Summary: {cart.length}</h2>
+            {cart.length > 2 ? <span>Aro kino</span>: <span>Poor</span>}
             {message}
             {
                 cart.map(tshirt => <p 
