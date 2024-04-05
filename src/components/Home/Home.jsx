@@ -7,11 +7,18 @@ import './Home.css';
 const Home = () => {
     const tshirts = useLoaderData();
     const [cart, setCart] = useState([]);
-
+// Handle add to cart
     const handleAddToCart = tshirt => {
         const newCart = [...cart, tshirt];
         setCart(newCart);
     }
+
+    // Handle remove to cart
+    const handleRemoveFromCart = id => {
+        const remaining = cart.filter(ts => ts._id !== id);
+        setCart(remaining);
+    }
+
     return (
         <div className='home-container'>
            <div className='t-shirts-container'>
@@ -24,7 +31,9 @@ const Home = () => {
            }
            </div>
            <div className="cart-container">
-            <Cart cart={cart}></Cart>
+            <Cart cart={cart}
+            handleRemoveFromCart={handleRemoveFromCart}
+            ></Cart>
            </div>
         </div>
     );
