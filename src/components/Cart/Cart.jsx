@@ -34,6 +34,10 @@ const Cart = ({cart, handleRemoveFromCart}) => {
             {
                 cart.length === 2 && <p>Double bonanxa!!!</p>
             }
+            {/* Logical ||: (if the condition is false then the next thing will be displayed) */}
+            {
+                cart.length === 3 || <h3>3 ta toh holo na</h3>
+            }
         </div>
     );
 };
