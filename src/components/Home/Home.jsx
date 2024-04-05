@@ -4,13 +4,22 @@ import { useLoaderData } from 'react-router-dom';
 import Tshirt from '../Tshirt/Tshirt';
 import Cart from '../Cart/Cart';
 import './Home.css';
+import toast from 'react-hot-toast';
+
 const Home = () => {
     const tshirts = useLoaderData();
     const [cart, setCart] = useState([]);
 // Handle add to cart
     const handleAddToCart = tshirt => {
-        const newCart = [...cart, tshirt];
-        setCart(newCart);
+        // not allow duplicate tshirt
+        const exists = cart.find(ts => ts._id === tshirt._id);
+        if(exists){
+             toast('You have already added this t-shirt');
+        }
+        else{
+            const newCart = [...cart, tshirt];
+            setCart(newCart);
+        }
     }
 
     // Handle remove to cart
