@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
-
+import './Cart.css'
 // eslint-disable-next-line react/prop-types
 const Cart = ({cart, handleRemoveFromCart}) => {
     // use if or if else to set a variable that will contain an element, components
@@ -17,9 +17,12 @@ const Cart = ({cart, handleRemoveFromCart}) => {
     }
     return (
         <div>
-            <h2>Order Summary: {cart.length}</h2>
+            {/* Product common dekhate na chaile css condition ei rokom dekhate hbe [Use ternary] */}
+            <h2 className={cart.length === 1 ? 'blue': 'red'}>Order Summary: {cart.length}</h2>
+            {/* Product coom dekhate chaile css style contidon emn hbe [ternary inside template string]*/}
+            <p className={`bold bordered ${cart.length === 3 ? 'yellow' : 'purple'}`}>Something</p>
             {/* Ternary condition */}
-            {cart.length > 2 ? <span>Aro kino</span>: <span>Poor</span>}
+            {cart.length > 2 ? <span className='purple'>Aro kino</span>: <span className='orange'>Poor</span>}
             {message}
 
             {
