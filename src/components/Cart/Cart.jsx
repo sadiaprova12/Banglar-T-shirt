@@ -4,6 +4,7 @@ import React from 'react';
 
 // eslint-disable-next-line react/prop-types
 const Cart = ({cart, handleRemoveFromCart}) => {
+    // use if or if else to set a variable that will contain an element, components
     let message;
     if(cart.length === 0){
         message = <p>Please add some products</p>
@@ -17,14 +18,21 @@ const Cart = ({cart, handleRemoveFromCart}) => {
     return (
         <div>
             <h2>Order Summary: {cart.length}</h2>
+            {/* Ternary condition */}
             {cart.length > 2 ? <span>Aro kino</span>: <span>Poor</span>}
             {message}
+
             {
                 cart.map(tshirt => <p 
                     key={tshirt._id}
                     >{tshirt.name} <button 
            onClick={() => handleRemoveFromCart (tshirt._id)}
         >X</button></p>)
+            }
+            {/*  Logical &&: (if the condition is true then the next thing will be displayed) */}
+
+            {
+                cart.length === 2 && <p>Double bonanxa!!!</p>
             }
         </div>
     );
