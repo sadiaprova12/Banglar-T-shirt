@@ -11,3 +11,7 @@ const Friend = (ring) => {
 };
 
 export default Friend;
+
+
+
+
