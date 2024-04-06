@@ -1,12 +1,15 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
+import React, { useContext } from 'react';
+import { RingContext } from '../Grandpa/Grandpa';
 
-// eslint-disable-next-line react/prop-types
+// eslint-disable-next-line react/prop-types, no-unused-vars
 const Spacial = ({ring}) => {
+
+    const angti = useContext(RingContext)
     return (
         <div>
             <h2>Special</h2>
-            <p><small>Ring: {ring}</small></p>
+            <p><small>Ring: {angti}</small></p>
         </div>
     );
 };
